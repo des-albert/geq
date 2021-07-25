@@ -114,9 +114,9 @@ program solver
     sh = dz/dr
     ss = sh**2
 
-    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "Rmin = ", Rmin, " Rmax = ", Rmax," dr = ", dr 
-    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "Zmin = ", Zmin, " Zmax = ", Zmax," dz = ", dz
-    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "alpha = ", alpha, " sh = ", sh," ss = ", ss
+    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "Rmin  = ", Rmin, " Rmax = ", Rmax," dr = ", dr 
+    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "Zmin  = ", Zmin, " Zmax = ", Zmax," dz = ", dz
+    write (*,'(a,f7.3,a,f7.3,a,f7.3)') "alpha = ", alpha, "   sh = ", sh," ss = "
 !    
 ! Boundary Matrix Setup
 !
