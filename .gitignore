@@ -1,0 +1,4 @@
+*.o
+*.met
+*.mod
+solver
