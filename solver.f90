@@ -227,7 +227,7 @@ program solver
                  nof = (k - 1)*Mr
                  do j = 1, Mr
                     jn = nof + j
-                    expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), ar)
+                    expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), 0.)
                  end do
               end do
 
@@ -235,7 +235,7 @@ program solver
                  nof = (k - 1)*Mr
                  do j = 1, Mr, Mm1
                     jn = nof + j                    
-                    expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), ar)
+                    expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), 0.)
                  end do
               end do
 
@@ -251,7 +251,7 @@ program solver
                    nof = (k - 1)*Mr
                    do j = 1, Mr
                       jn = nof + j                    
-                      expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), ar)
+                      expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), 0.)
                    end do
                 end do
              end if
