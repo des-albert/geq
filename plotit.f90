@@ -47,10 +47,10 @@ subroutine plotit ()
 
     do i= 2, 16
         plev = real(psicon + (i-1)*(fabs - psicon)/15.0_rk)
-        call contur(rr, mr, rz, nz, rf, plev)
+        call contur(rr, Mr, rz, Nz, rf, plev)
     end do
     call color('red')
-    call contur(rr, mr, rz, nz, rf, real(psicon))
+    call contur(rr, Mr, rz, Nz, rf, real(psicon))
     call endgrf
     call disfin
 
