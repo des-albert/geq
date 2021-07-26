@@ -22,7 +22,7 @@ subroutine compar ()
             ren = (dev/tot)
             if (ren .gt. rel) rel = ren
         end do
-        write (*,'(a,e12.5)') 'Relative Error = ', rel
+        write (*,'(a,e12.5)') ' Relative Error = ', rel
         if (rel .le. error) then
             idecis = 1
             return

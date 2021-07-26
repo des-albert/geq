@@ -16,7 +16,7 @@ subroutine curf()
     real(rk) :: rax, zax, xalp, xalp1, xalp2, xalpr2, xalpz2, rzy, gn, cjm
     real(rk) :: pp, ff, ppin, ffin
 
-    if (mprfg.ne.0) write(*,'(a,f12.5)') 'psi saddle point                =  ',psicon
+    if (mprfg.ne.0) write(*,'(a,f12.5)') ' psi saddle point                =  ',psicon
 
     call topol(lcod)
 !
@@ -40,7 +40,7 @@ subroutine curf()
     end do
 
     fabs = fmaxa + psicon
-    if (mprfg.ne.0) write (*,'(a,f12.5,a,f12.5,a,f12.5)') 'Magnetic Axis radius =', rax, ' height = ', zax, ' psi = ', fabs
+    if (mprfg.ne.0) write (*,'(a,f12.5,a,f12.5,a,f12.5)') ' Magnetic Axis radius =', rax, ' height = ', zax, ' psi = ', fabs
     ipoi = 0
     idol = 0
     xalp = 0.0_rk
@@ -112,8 +112,9 @@ subroutine curf()
     c0btr = (totcurr - c0pr*dint(1))/dint(2)
 
     if(mprfg.ne.0) then
-        write(*,'(a,e12.5,a,e12.5)') 'c0pr = ', c0pr, ' c0btr = ', c0btr 
-        write(*,'(a,e12.5,a,e12.5)')' Plasma Area = ',dint(6), ' Plasma Volume = ', dint(8)
+        write(*,'(a,f12.5,a,f12.5)') ' c0pr = ', c0pr, ' c0btr = ', c0btr 
+        write(*,'(a,f12.5,a,f12.5)')' Plasma Area = ',dint(6), ' Plasma Volume = ', dint(8)
+        write(*,'(a)')
     end if
 
     do j = 1, Mr

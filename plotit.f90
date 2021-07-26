@@ -25,8 +25,8 @@ subroutine plotit ()
     call disini
     call complx
     call pagera
-    call pagfll(255);
-    call color('blue');
+    call pagfll(255)
+    call color('blue')
     call axslen(1120,1600)
     call graf(0., 14., 0., 2., -10., 10., -10., 2.)
     call xaxgit

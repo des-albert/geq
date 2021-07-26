@@ -349,7 +349,7 @@ program solver
     allocate(com(Mr))
 
     do while (icycle.le.20)
-        write(6,'(a,i4)') 'Cycle number ', icycle
+        write(6,'(a,i2,a)') ' ==== Cycle number ', icycle,' ===='
 
         call eqsil(f)
 
@@ -370,7 +370,7 @@ program solver
         end do
 
         call xcur (expsi)
-        
+    
         xt1 = 0.0_rk
         xt2 = 0.0_rk
         xt3 = 0.0_rk
@@ -382,7 +382,7 @@ program solver
                 xt3 = xt3 + abs(curr*Ra(j,i))
             end do
         end do
-        if (mprfg.ne.0) write (*, '(a,e12.4,a,e12.4,a,e12.4)') 'SIG(I**2) = ',xt1,'  SIG(ABS(I)) = ', xt2, '  SIG(ABS(RI)) = ', xt3
+        if (mprfg.ne.0) write (*, '(a,f12.4,a,f12.4,a,f12.4)') ' SIG(I**2) = ',xt1,'  SIG(ABS(I)) = ', xt2, '  SIG(ABS(RI)) = ', xt3
 
         do k = 1, Mmax
             do j = 1,  MN
@@ -393,10 +393,8 @@ program solver
 
         call saddle()
 
-        print *, 'saddle', irsp, izsp, psicon
-
         if (irsp .gt. 2) then
-            if (mprfg.ne.0) write (6,'(a,f12.5,a,f12.5)') 'Saddle point r = ', R(irsp), ' z = ', Z(izsp)
+            if (mprfg.ne.0) write (6,'(a,f12.5,a,f12.5)') ' Saddle point r = ', R(irsp), ' z = ', Z(izsp)
         end if
         if (idecis.gt.0) GO TO 30
 
