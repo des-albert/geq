@@ -184,12 +184,12 @@ program solver
     end do
     
     do j = 1, 4
-        al1 = apl*(((1.0_rk + trixp)*(1.0_rk + trixp)) + elxp*elxp)/(2.0_rk*(1.0_rk + trixp))
-        al2 = apl*(((1.0_rk - trixp)*(1.0_rk - trixp)) + elxp*elxp)/(2.0_rk*(1.0_rk - trixp))
+        al1 = Apl*(((1.0_rk + trixp)*(1.0_rk + trixp)) + elxp*elxp)/(2.0_rk*(1.0_rk + trixp))
+        al2 = Apl*(((1.0_rk - trixp)*(1.0_rk - trixp)) + elxp*elxp)/(2.0_rk*(1.0_rk - trixp))
         anga = atan(2.0_rk*elxp*(1.0_rk + trixp)/(elxp*elxp - (1.0_rk + trixp)*(1.0_rk + trixp)))
         angb = atan(2.0_rk*elxp*(1.0_rk - trixp)/(elxp*elxp - (1.0_rk - trixp)*(1.0_rk - trixp)))
-        rc1 = rmpl + apl - al1
-        rc2 = rmpl - apl + al2
+        rc1 = Rmpl + Apl - al1
+        rc2 = Rmpl - Apl + al2
         ang1 = anga*j/5.0_rk
         ang2 = angb*j/5.0_rk
         Rcc(j+8) = rc1 + al1*cos(ang1)
