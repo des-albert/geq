@@ -65,7 +65,7 @@ program solver
     real(rk) :: dzh, qsc, vdc, btvac, br1, fb, dov 
     real(rk), dimension(Ng, Mc) :: Ra, Za, Ex, Rl
     real(rk), dimension(16) :: Rcc, Zcc
-    real(rk), dimension(Mc) :: Rc, Zc
+    real(rk), dimension(Nmax) :: Rc, Zc
     real(rk), dimension(:), allocatable :: expsi, fool
     real(rk), dimension(:,:), allocatable :: psiext
     real(rk),dimension(30) :: psiq, rmn, rmx, qs, vd
