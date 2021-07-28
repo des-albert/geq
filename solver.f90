@@ -177,10 +177,10 @@ program solver
     Zc(6) = Offset + Apl*El
     do j = 1, 4
        ang = j*pi/10.0_rk
-       Rcc(j) = Rmpl + apl*cos(ang + tri*sin(ang))
-       Zcc(j) = Offset + el*apl*sin(ang)
-       Rcc(j+4) = rmpl + apl*cos(ang + pi/2.0_rk + tri*sin(ang + pi/2.0_rk))
-       Zcc(j+4) = offset + el*apl*sin(ang + pi/2.0_rk)
+       Rcc(j) = Rmpl + Apl*cos(ang + tri*sin(ang))
+       Zcc(j) = Offset + El*apl*sin(ang)
+       Rcc(j+4) = Rmpl + Apl*cos(ang + pi/2.0_rk + tri*sin(ang + pi/2.0_rk))
+       Zcc(j+4) = Offset + El*Apl*sin(ang + pi/2.0_rk)
     end do
     
     do j = 1, 4
