@@ -152,7 +152,7 @@ end subroutine curf
 
 function pp (x, alfa)
 
-    use solve_mod
+    use solver_mod
 
     real(rk) :: pp, ff, ppin, ffin, x, alfa
 

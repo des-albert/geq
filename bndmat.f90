@@ -111,7 +111,7 @@ end subroutine bndmat
 !-----------------------------------------------------------------------
 
 function gfl (rv, rst, zv, del)
-    use solve_mod
+    use solver_mod
 
     real(rk) :: ak, x, xdl, rv, rst, zv, del, gfl
 
