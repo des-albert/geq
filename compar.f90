@@ -9,7 +9,7 @@
 !
 subroutine compar ()
 
-    use solve_mod
+    use solver_mod
 
     integer(ik) :: j
     real(rk) :: rel, tot, dev, ren

@@ -3,7 +3,7 @@
 subroutine smootl (y, imax, b, c)
 
 !---------------------------------------------------------------------
-    use solve_mod
+    use solver_mod
 
     real(rk):: b, c
     real(rk), dimension(5) :: sa, ssa 

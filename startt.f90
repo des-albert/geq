@@ -4,7 +4,7 @@
 ! 
 !----------------------------------------------------------------------
 subroutine startt()
-    use solve_mod
+    use solver_mod
     real(rk) :: cp
     integer :: i, j, nmin, njmax
 

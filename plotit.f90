@@ -5,7 +5,7 @@
 !-----------------------------------------------------------------------
 subroutine plotit ()
 
-    use solve_mod
+    use solver_mod
 
     real, dimension(:), allocatable :: rf, rr, rz
     real :: plev

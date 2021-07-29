@@ -1,6 +1,6 @@
 function ps (rpa, zpa, rp, zp, l)
 
-    use solve_mod
+    use solver_mod
 
     real(rk), intent(in) :: rpa, zpa, rp, zp
 

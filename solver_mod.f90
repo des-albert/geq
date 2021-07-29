@@ -1,4 +1,4 @@
-module solve_mod
+module solver_mod
 
     implicit none
 

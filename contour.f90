@@ -1,6 +1,6 @@
 subroutine contour (h)
 
-    use solve_mod
+    use solver_mod
 
     real(rk) :: h 
 

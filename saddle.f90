@@ -14,7 +14,7 @@
 !-------------------------------------------------------------------------------
 subroutine saddle()
 
-    use solve_mod
+    use solver_mod
 
     logical :: sg, gg
     integer(ik) :: i, k, ko, io, l

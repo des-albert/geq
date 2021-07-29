@@ -7,7 +7,7 @@
 !-----------------------------------------------------------------------
       
 subroutine bndmat()    
-    use solve_mod
+    use solver_mod
 
     real(rk), dimension(:), allocatable :: rt, zt
 

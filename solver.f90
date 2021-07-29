@@ -53,7 +53,7 @@
 ! 
 
 program solver
-    use solve_mod
+    use solver_mod
 
     integer(ik) :: meshfg, mprfg, nof, jn, ll, kk
     integer(ik) :: i, j, k, ii, icm, lp1, icl, nlines, na

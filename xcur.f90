@@ -8,7 +8,7 @@
 !-----------------------------------------------------------------------
 subroutine xcur(a)
 
-    use solve_mod
+    use solver_mod
 
     integer :: mmaxp1, mmaxp2, i, j, ll, k, ier, ki
     real(rk), dimension(mpnmax,1) :: a

@@ -9,7 +9,7 @@
 
 subroutine curf()
 
-    use solve_mod
+    use solver_mod
 
     integer(ik) :: j, k, n, mcont, ipoi, lcod
     real(rk), dimension(10) :: s, beh, dint

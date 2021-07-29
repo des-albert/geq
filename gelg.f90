@@ -44,7 +44,7 @@
 !------------------------------------------------------------------------------- 
 subroutine gelg (rr, a, m, n, eps, ier) 
     
-    use solve_mod
+    use solver_mod
 
     integer(ik) m, n, ier, mm, nm, lst, i, j, k, ll, lend, ii, ist
     real(rk), dimension(*) :: a, rr

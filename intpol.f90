@@ -1,7 +1,7 @@
 !-----------------------------------------------------------------------
 !
 subroutine intpol (v, x, y, fi, fx, fy, ier)
-    use solve_mod
+    use solver_mod
 
     real(rk), dimension(*):: v
     real(rk),dimension (3) :: af,adf
@@ -62,7 +62,7 @@ end subroutine intpol
 
 subroutine condit (v, rx, zx, itp, b)
     
-    use solve_mod
+    use solver_mod
 
     real(rk) :: rx, zx, x, y, b
     real(rk),dimension(*):: v

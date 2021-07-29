@@ -16,7 +16,7 @@
 !-----------------------------------------------------------------------
 
 subroutine splnco (psi)
-    use solve_mod
+    use solver_mod
 
     real(rk),dimension(8) ::  a
     real(rk),dimension(*) :: psi

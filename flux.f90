@@ -27,7 +27,7 @@
 !----------------------------------------------------------------------
 
 subroutine flux(psi)
-    use solve_mod
+    use solver_mod
 
     real(rk), dimension(:), allocatable :: tc, a
     real(rk), dimension(*) :: psi

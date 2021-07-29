@@ -10,7 +10,7 @@
 !
 !-----------------------------------------------------------------------
 subroutine topol(lcod)
-    use solve_mod
+    use solver_mod
 
     integer(ik) :: lcod, lsym, j, n, jma, l, jmax, jnu, ji, jmin, j1, j2, jmi
     integer(ik), dimension(2) :: nmx
