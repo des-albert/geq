@@ -104,6 +104,8 @@ subroutine bndmat()
         end do
     end do
 
+    deallocate(rt, zt)
+
     return        
         
 end subroutine bndmat

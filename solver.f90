@@ -219,7 +219,7 @@ program solver
               expsi(jn) = 0.0_rk
            end do
         end do
-       
+
         do i = 1, icl
             if (.not. (((Zmax - Za(i,kk))*(Zmin - Za(i,kk)).le.0.0_rk) .and.  &
                 ((Rmax - Ra(i,kk))*(Rmin - Ra(i,kk)) .le. 0.0_rk))) then
@@ -228,6 +228,7 @@ program solver
                  do j = 1, Mr
                     jn = nof + j
                     expsi(jn) = expsi(jn) + Ex(i,kk)*gfl(R(j), Ra(i,kk), Z(k) - Za(i,kk), 0.)
+                    
                  end do
               end do
 
@@ -477,5 +478,7 @@ program solver
     write(*,'(5x,a,f12.5)') 'Plasma Internal Inductance        ', xind
 
 40  continue
+
+    deallocate(R, Z, cjt, pr, bt2, ip, jp, aux, expsi, fool, psiext, com)
 
 end program solver

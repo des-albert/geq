@@ -31,6 +31,8 @@ subroutine eqsil(q)
    end do
 
    call flux(q)
+
+   deallocate (qq)
    
    return 
 

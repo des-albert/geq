@@ -145,6 +145,7 @@ subroutine flux(psi)
         go to 80
     end select
 
+    deallocate(tc, a)
     return
 	  
 end subroutine flux

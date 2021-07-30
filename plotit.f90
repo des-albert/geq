@@ -72,5 +72,8 @@ subroutine plotit ()
     call curve(rr, real(pr), Mr)
     call disfin
 
+    deallocate( rf, rr, rz)
+
+    return
 
 end subroutine plotit
