@@ -288,7 +288,7 @@ program solver
             ii = i + 1
             if (ii <= ic(kk)) then
                 do j = ii, icl
-                    cl(kk,kk) = cl(kk,kk) + 2.0_rk*Ex(i,kk)*Ex(j,kk)*gfl(Ra(j,kk), Ra(i,kk), Za(j,kk)- Za(i,kk),ar)
+                    cl(kk,kk) = cl(kk,kk) + 2.0_rk*Ex(i,kk)*Ex(j,kk)*gfl(Ra(j,kk), Ra(i,kk), Za(j,kk)- Za(i,kk),0.)
                 end do
             endif
         end do
@@ -300,7 +300,7 @@ program solver
                 cl(kk,k) = 0.0_rk
                 do i = 1, icl
                     do j = 1, icm
-                        cl(kk,k) = cl(kk,k) + Ex(i,kk)*Ex(j,k)*gfl(Ra(j,k), Ra(i,kk), Za(j,k) - Za(i,kk),ar)
+                        cl(kk,k) = cl(kk,k) + Ex(i,kk)*Ex(j,k)*gfl(Ra(j,k), Ra(i,kk), Za(j,k) - Za(i,kk),0.)
                     end do
                 end do  
             end do
