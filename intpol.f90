@@ -20,7 +20,7 @@ subroutine intpol (v, x, y, fi, fx, fy, ier)
         if (n == 0) then
             do i = 1, 3
                 ki = mni + 1
-                a1 = 2.0_rk*(v(k + Mr) - v(ki))
+                a1 = 2.0_rk*(v(ki + Mr) - v(ki))
                 a2 = 0.0_rk
                 af(i) = p(dy) + v(ki)
                 adf(i) = dp(dy)
