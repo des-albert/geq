@@ -27,8 +27,8 @@ subroutine xcur(a)
         do j = 1, Nmax
             a(i,mmaxp1+j) = bb(j,i)
         end do
-        if (icops .ge. 2) then
-            if (icops .gt. 2) then
+        if (icops >= 2) then
+            if (icops > 2) then
                 a(i,mpnmax) = 0.0_rk
             else
                 a(i,mpnmax) = cl(mmaxp1,i)
@@ -37,13 +37,13 @@ subroutine xcur(a)
     end do
 
     a(mmaxp1,mmaxp1) = 0._rk
-    if (Nmax .gt. 0) then
+    if (Nmax > 0) then
         do j = 1, Nmax
             a(mmaxp1, mmaxp1 + j) = bv(ityp(j))
         end do
     end if
-    if (icops .ge. 2) then
-        if (icops .gt. 2) then
+    if (icops >= 2) then
+        if (icops > 2) then
             a(mmaxp1,mpnmax) = 1.0_rk
         else
             a(mmaxp1,mpnmax) = 0.0_rk
@@ -58,7 +58,7 @@ subroutine xcur(a)
         fk(i) = 0.0_rk
     end do
 
-    if (llmax .gt. 0) then
+    if (llmax > 0) then
         do ll = 1, llmax
             do i = 1, Mmax
                 do j = i, Mmax
@@ -82,7 +82,7 @@ subroutine xcur(a)
         fk(mmaxp1+j) =  - bb(j,mmaxp1)
     end do
 
-    if (icops .ge. 2) fk(mpnmax) = value
+    if (icops >= 2) fk(mpnmax) = value
 
     call gelg(fk, a, mpnmax, 1, 1e-7, ier)
 
@@ -90,7 +90,7 @@ subroutine xcur(a)
     energy = 0.0_rk
     do i = 1, Mmax
         ki = i + 1
-        if (ki .le. Mmax) then
+        if (ki <= Mmax) then
             do k = ki, Mmax
                 energy = energy + cl(i,k)*fk(i)*fk(k)
             end do

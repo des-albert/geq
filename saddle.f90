@@ -27,7 +27,7 @@ subroutine saddle()
     do i = 2, Nm1
         do k = 2, Mm1
             hk = g(k,i)
-            if (.not. (irsp .ne. 0 .and. psicon .ge. hk)) then
+            if (.not. (irsp /= 0 .and. psicon >= hk)) then
                 zfrr = g(k+1,i) - 2.0_rk*hk + g(k-1,i)
                 zfzz = g(k,i+1) - 2.0_rk*hk + g(k,i-1)
                 zfrz = g(k+1,i+1) + g(k-1,i-1) - g(k+1,i-1) - g(k-1,i+1)
@@ -37,11 +37,11 @@ subroutine saddle()
                     ko = 1
                     io =  - 2
                     do l = 1, 4
-                        if (l .lt. 4) io = io + 1
-                        if (l .eq. 4) ko = 0
-                        if (f1(g(k+ko, i+io), g(k-ko,i-io)) .gt. 0.0_rk) then
-                            if (g(k+ko, i+io) .ne. hk) then
-                                if (g(k+ko, i+io) .gt. hk) then
+                        if (l < 4) io = io + 1
+                        if (l == 4) ko = 0
+                        if (f1(g(k+ko, i+io), g(k-ko,i-io)) > 0.0_rk) then
+                            if (g(k+ko, i+io) /= hk) then
+                                if (g(k+ko, i+io) > hk) then
                                     sg = .true.
                                 else
                                     gg = .true.

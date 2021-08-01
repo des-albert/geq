@@ -15,9 +15,9 @@ subroutine intpol (v, x, y, fi, fx, fy, ier)
     mni = m + n*Mr
     ier = 1
 
-    if (.not. (m .lt. 0 .or. m .ge. Mr-2 .or. n .lt. 0 .or. n .ge. Nz -1)) then
+    if (.not. (m < 0 .or. m >= Mr-2 .or. n < 0 .or. n >= Nz -1)) then
         ier = 0
-        if (n .eq. 0) then
+        if (n == 0) then
             do i = 1, 3
                 ki = mni + 1
                 a1 = 2.0_rk*(v(k + Mr) - v(ki))

@@ -20,7 +20,7 @@ subroutine startt()
 
     nmin = 2*naxis - ndes
     njmax = ndes
-    if (njmax .le. nmin) then
+    if (njmax <= nmin) then
         njmax = nmin
         nmin = ndes
     end if

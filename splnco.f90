@@ -62,12 +62,12 @@ subroutine splnco (psi)
     select case (mode)
         case(2)
             jh = 2*jh
-            if (jh .lt. jh2) go to 30
+            if (jh < jh2) go to 30
             mode = 1
-            if (k .eq. 5) then
+            if (k == 5) then
                 jh = jh/2
-                if (jh .ge. jh1) go to 30
-                if (jh1 .eq. Mr) go to 50
+                if (jh >= jh1) go to 30
+                if (jh1 == Mr) go to 50
                 jh1 = Mr
                 lend = Mr
                 ls = 1
@@ -79,8 +79,8 @@ subroutine splnco (psi)
             go to 30
         case(1) 
             jh = jh/2
-            if (jh .ge. jh1) go to 30
-            if (jh1 .eq. Mr) go to 50
+            if (jh >= jh1) go to 30
+            if (jh1 == Mr) go to 50
 !
 !        Control for inner loop on rows
 !

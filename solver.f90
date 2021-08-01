@@ -88,7 +88,7 @@ program solver
     read(8,*)
     read(8,*) Rmpl, Offset, Apl, El, tri, Rxpsn, Zxpsn
 
-    if (meshfg.gt.0) then
+    if (meshfg > 0) then
         Rmin = Rmpl - 32.0_rk*Apl/20.0_rk
         Rmax = Rmpl + 32.0_rk*Apl/20.0_rk
         Zmin = Offset - 32.0_rk*(Offset + abs(Zxpsn))/20.0_rk
@@ -133,7 +133,7 @@ program solver
        ic(k) = 0
        do while (.true.)
           read (8,*) rac, zac, exc
-          if (rac .le. 0.0_rk) go to 10
+          if (rac <= 0.0_rk) go to 10
           ic(k) = ic(k) + 1       
           Ra(ic(k),k) = rac
           Za(ic(k),k) = zac
@@ -141,10 +141,10 @@ program solver
           Rl(ic(k),k) = 1.0e-20*rac
        end do
 
- 10    if (ic(k) .lt. 1) go to 20
+ 10    if (ic(k) < 1) go to 20
     end do
 20  Mmax = k - 1
-    if (mprfg.ne.0) then
+    if (mprfg /= 0) then
         write(*,'(a)') "Conductor groups available for optimization"
         do k = 1, Mmax
             write (*,'(a,i3)') "Group :", k
@@ -198,7 +198,7 @@ program solver
         Zcc(j+12) = Offset - al2*sin(ang2)
     end do
 
-    if (mprfg.ne.0) then
+    if (mprfg /= 0) then
         write (*,*)
         write (*,*) '  Single null case: boundary points '
 
@@ -221,8 +221,8 @@ program solver
         end do
 
         do i = 1, icl
-            if (.not. (((Zmax - Za(i,kk))*(Zmin - Za(i,kk)).le.0.0_rk) .and.  &
-                ((Rmax - Ra(i,kk))*(Rmin - Ra(i,kk)) .le. 0.0_rk))) then
+            if (.not. (((Zmax - Za(i,kk))*(Zmin - Za(i,kk)) <= 0.0_rk) .and.  &
+                ((Rmax - Ra(i,kk))*(Rmin - Ra(i,kk)) <= 0.0_rk))) then
               do k = 1, Nz, Nm1
                  nof = (k - 1)*Mr
                  do j = 1, Mr
@@ -246,8 +246,8 @@ program solver
         call eqsil(expsi)
 
         do i = 1, icl
-            if ((.not. (((Zmax - Za(i,kk))*(Zmin - Za(i,kk)) .gt. 0.0_rk) .or. &
-                    ((Rmax - Ra(i,kk))*(Rmin - Ra(i,kk)) .gt. 0.0_rk)))) then
+            if ((.not. (((Zmax - Za(i,kk))*(Zmin - Za(i,kk)) > 0.0_rk) .or. &
+                    ((Rmax - Ra(i,kk))*(Rmin - Ra(i,kk)) > 0.0_rk)))) then
                 do k = 1, Nz
                    nof = (k - 1)*Mr
                    do j = 1, Mr
@@ -286,7 +286,7 @@ program solver
 
         do i = 1, icl
             ii = i + 1
-            if (ii .le. ic(kk)) then
+            if (ii <= ic(kk)) then
                 do j = ii, icl
                     cl(kk,kk) = cl(kk,kk) + 2.0_rk*Ex(i,kk)*Ex(j,kk)*gfl(Ra(j,kk), Ra(i,kk), Za(j,kk)- Za(i,kk),ar)
                 end do
@@ -294,7 +294,7 @@ program solver
         end do
         
         lp1 = kk + 1
-        if (lp1 .le. Mmax) then
+        if (lp1 <= Mmax) then
             do k = lp1, Mmax
                 icm = ic(k)
                 cl(kk,k) = 0.0_rk
@@ -315,7 +315,7 @@ program solver
     read(8,*)
     read(8,*) icops, value    
     mpnmax = Mmax + Nmax + 1
-    if (icops.ge.2) then
+    if (icops >= 2) then
         mpnmax = mpnmax + 1
     end if
     read(8,*)
@@ -328,12 +328,12 @@ program solver
     naxis = int(0.1 + (zaxis - Z(1))/dz) + 1
     zaxis = Z(naxis)
     ndes = int(0.1 + (abs(zdes) - Z(1))/dz) + 1
-    if (zdes .gt. 0.0_rk) then
+    if (zdes > 0.0_rk) then
         zdes = z(ndes)
     end if
     write(*,'(a,f8.3,a,f8.3)') 'Magnetic Axis  r = ',raxis, ' z = ', zaxis
     write (*,'(a,f8.3,a,e10.3)') 'Rail limiter   z = ', zdes, ' alp factor = ',alp
-    if (llmax.gt.0) then
+    if (llmax > 0) then
         alph = alp*2.0_rk*pi/(llmax*raxis)
     end if
 
@@ -349,7 +349,7 @@ program solver
 
     allocate(com(Mr))
 
-    do while (icycle.le.20)
+    do while (icycle <= 20)
         write(6,'(a,i2,a)') ' ==== Cycle number ', icycle,' ===='
 
         call eqsil(f)
@@ -383,7 +383,7 @@ program solver
                 xt3 = xt3 + abs(curr*Ra(j,i))
             end do
         end do
-        if (mprfg.ne.0) write (*, '(a,f12.4,a,f12.4,a,f12.4)') ' SIG(I**2) = ',xt1,'  SIG(ABS(I)) = ', xt2, '  SIG(ABS(RI)) = ', xt3
+        if (mprfg /= 0) write (*, '(a,f12.4,a,f12.4,a,f12.4)') ' SIG(I**2) = ',xt1,'  SIG(ABS(I)) = ', xt2, '  SIG(ABS(RI)) = ', xt3
 
         do k = 1, Mmax
             do j = 1,  MN
@@ -394,10 +394,10 @@ program solver
 
         call saddle()
 
-        if (irsp .gt. 2) then
-            if (mprfg.ne.0) write (6,'(a,f12.5,a,f12.5)') ' Saddle point r = ', R(irsp), ' z = ', Z(izsp)
+        if (irsp > 2) then
+            if (mprfg /= 0) write (6,'(a,f12.5,a,f12.5)') ' Saddle point r = ', R(irsp), ' z = ', Z(izsp)
         end if
-        if (idecis.gt.0) GO TO 30
+        if (idecis > 0) GO TO 30
 
         call curf()
 

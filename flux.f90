@@ -138,10 +138,10 @@ subroutine flux(psi)
             return
         case (2)
             lo = 2*lo
-            if (lo.lt.nn) go to 80
+            if (lo < nn) go to 80
         case (3:4)
             lo = lo/2
-            if (lo.eq.1) mode = 1
+            if (lo == 1) mode = 1
         go to 80
     end select
 

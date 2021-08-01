@@ -19,7 +19,7 @@ function ps (rpa, zpa, rp, zp, l)
         acl = 1.0d-06
         args = 4.0_rk*rpa*rp/((rpa + rp)**2 + (zp-sigp(k)*zpa)**2)
         abl = 1.0_rk - args
-        if (abl .ge. 1.0d-06) acl = abl
+        if (abl >= 1.0d-06) acl = abl
         alg = log(1.0_rk/acl)
         resk = (a(3)*acl + a(2))*acl + a(1) +  alg*((b(3)*acl + b(2))*acl + b(1))
         rese = (c(2)*acl + c(1))*acl + 1.0_rk + alg*(d(2)*acl + d(1))*acl

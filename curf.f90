@@ -16,7 +16,7 @@ subroutine curf()
     real(rk) :: rax, zax, xalp, xalp1, xalp2, xalpr2, xalpz2, rzy, gn, cjm
     real(rk) :: pp, ff, ppin, ffin
 
-    if (mprfg.ne.0) write(*,'(a,f12.5)') ' psi saddle point                =  ',psicon
+    if (mprfg /= 0) write(*,'(a,f12.5)') ' psi saddle point                =  ',psicon
 
     call topol(lcod)
 !
@@ -29,7 +29,7 @@ subroutine curf()
     mcont = 0
     do j = 1, Mr
         do n = 1, Nz
-            if (g(j,n) .gt. fmaxa) then
+            if (g(j,n) > fmaxa) then
                 fmaxa = g(j,n)
                 jaxis = j
                 naxis = n
@@ -40,7 +40,7 @@ subroutine curf()
     end do
 
     fabs = fmaxa + psicon
-    if (mprfg.ne.0) write (*,'(a,f12.5,a,f12.5,a,f12.5)') ' Magnetic Axis radius =', rax, ' height = ', zax, ' psi = ', fabs
+    if (mprfg /= 0) write (*,'(a,f12.5,a,f12.5,a,f12.5)') ' Magnetic Axis radius =', rax, ' height = ', zax, ' psi = ', fabs
     ipoi = 0
     idol = 0
     xalp = 0.0_rk
@@ -55,21 +55,21 @@ subroutine curf()
             xalp2 = 0.0_rk
             xalpr2 = 0.0_rk
             xalpz2 = 0.0_rk
-            if (g(j,n) .gt. 0.0_rk) then
-                if (((j .gt. 1) .and. (j .lt. Mr)) .and. ((n .gt. 1) .and. (n .lt. Nz))) then
+            if (g(j,n) > 0.0_rk) then
+                if (((j > 1) .and. (j < Mr)) .and. ((n > 1) .and. (n < Nz))) then
                     xalpr2 = ((g(j+1, n) - g(j-1, n))/(2.0_rk*dr))**2
                     xalpz2 = ((g(j, n+1) - g(j, n-1))/(2.0_rk*dz))**2
 
-                    if (g(j-1, n) .le. 0.0_rk)then
+                    if (g(j-1, n) <= 0.0_rk)then
                         xalpr2 = ((g(j+1, n) - g(j,n))/dr)**2
                     end if
-                    if (g(j+1, n) .le. 0.0_rk) then
+                    if (g(j+1, n) <= 0.0_rk) then
                         xalpr2 = ((g(j,n) - g(j-1,n))/dr)**2
                     end if
-                    if (g(j, n-1) .le. 0.0_rk) then
+                    if (g(j, n-1) <= 0.0_rk) then
                         xalpz2 = ((g(j,n+1) - g(j,n))/dz)**2
                     end if
-                    if (g(j, n+1) .le. 0.0_rk) then
+                    if (g(j, n+1) <= 0.0_rk) then
                         xalpz2 = ((g(j,n) - g(j,n-1))/dz)**2
                     end if
 
@@ -111,7 +111,7 @@ subroutine curf()
     c0pr = betapol*totcurr**2/(8.0_rk*pi*dint(4))
     c0btr = (totcurr - c0pr*dint(1))/dint(2)
 
-    if(mprfg.ne.0) then
+    if(mprfg /= .0) then
         write(*,'(a,f12.5,a,f12.5)') ' c0pr = ', c0pr, ' c0btr = ', c0btr 
         write(*,'(a,f12.5,a,f12.5)')' Plasma Area = ',dint(6), ' Plasma Volume = ', dint(8)
         write(*,'(a)')
@@ -139,9 +139,9 @@ subroutine curf()
 
     do j = 1, Mr
         cjt(j) = g(j,naxis)/r(j)
-        if (abs(cjt(j)) .gt. cjm) cjm = abs(cjt(j))
+        if (abs(cjt(j)) > cjm) cjm = abs(cjt(j))
     end do
-    if (cjm .lt. dz**2) cjm = 1.0_rk
+    if (cjm < dz**2) cjm = 1.0_rk
     do j = 1, Mr
         cjt(j) = cjt(j)/cjm
     end do

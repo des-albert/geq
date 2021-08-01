@@ -50,7 +50,7 @@ subroutine gelg (rr, a, m, n, eps, ier)
     real(rk), dimension(*) :: a, rr
     real(rk) :: eps, piv, pivi, tb, tol
 
-    if (m .gt. 0) then
+    if (m > 0) then
 !
 !     Search for greatest element in matrix a
 !
@@ -60,7 +60,7 @@ subroutine gelg (rr, a, m, n, eps, ier)
         nm = n*m
         do l = 1, mm
             tb = abs(a(l))
-            if (tb .gt. piv) then
+            if (tb > piv) then
                 piv = tb
                 i = l
             endif
@@ -77,9 +77,9 @@ subroutine gelg (rr, a, m, n, eps, ier)
 !
 !     Test on singularity
 !
-            if (piv .le. 0) go to 230
-            if (ier .eq. 0) then
-                if (piv .le. tol) ier = k - 1
+            if (piv <= 0) go to 230
+            if (ier == 0) then
+                if (piv <= tol) ier = k - 1
             end if
             pivi = 1.0_rk/a(i)
             j = (i - 1)/m
@@ -98,12 +98,12 @@ subroutine gelg (rr, a, m, n, eps, ier)
 !
 !     Is elimination terminated
 !
-            if (k .ge. m) go to 180
+            if (k >= m) go to 180
 !
 !     Column interchange in matrix a
 !
             lend = lst + m - k
-            if (j .gt. 0) then
+            if (j > 0) then
                 ii = j*m
                 do l = lst, lend
                     tb = a(l)
@@ -139,7 +139,7 @@ subroutine gelg (rr, a, m, n, eps, ier)
                     ll = l - j
                     a(l) = a(l) + pivi*a(ll)
                     tb = abs(a(l))
-                    if (tb .gt. piv) then
+                    if (tb > piv) then
                         piv = tb
                         i = l
                     end if
@@ -156,8 +156,8 @@ subroutine gelg (rr, a, m, n, eps, ier)
 !
 !     Back substitution and back interchange
 !
-180     if (m .ge. 1) then
-            if (m .ne. 1) then
+180     if (m >= 1) then
+            if (m /= 1) then
                 ist = mm + m
                 lst = m + 1
                 do i = 2, m
