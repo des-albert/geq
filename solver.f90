@@ -329,7 +329,7 @@ program solver
     zaxis = Z(naxis)
     ndes = int(0.1 + (abs(zdes) - Z(1))/dz) + 1
     if (zdes > 0.0_rk) then
-        zdes = z(ndes)
+        zdes = Z(ndes)
     end if
     write(*,'(a,f8.3,a,f8.3)') 'Magnetic Axis  r = ',raxis, ' z = ', zaxis
     write (*,'(a,f8.3,a,e10.3)') 'Rail limiter   z = ', zdes, ' alp factor = ',alp
