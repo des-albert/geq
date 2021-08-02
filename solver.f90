@@ -405,7 +405,9 @@ program solver
 
     end do
 
-30  call plotit()  
+30  continue
+
+!    call plotit()
 
  
 
