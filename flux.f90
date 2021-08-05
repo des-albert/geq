@@ -76,7 +76,7 @@ subroutine flux(psi)
     a(Mm1 + Mm1) = 0.0_rk
     mode = 2
     is = -1
-80  li = 2*lo
+30  li = 2*lo
 
     iphase = 2*mode - li/nn
     jd = Mr*nn/li
@@ -135,17 +135,17 @@ subroutine flux(psi)
 
     select case (iphase)
         case (1)
-            return
+            go to 40
         case (2)
             lo = 2*lo
-            if (lo < nn) go to 80
+            if (lo < nn) go to 30
         case (3:4)
             lo = lo/2
             if (lo == 1) mode = 1
-        go to 80
+        go to 30
     end select
 
-    deallocate(tc, a)
+40  deallocate(tc, a)
     return
 	  
 end subroutine flux
