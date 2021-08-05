@@ -407,7 +407,7 @@ program solver
 
 30  continue
 
-!    call plotit()
+    call plotit()
 
  
 
