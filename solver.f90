@@ -281,7 +281,7 @@ program solver
         cl(Mmax+1, kk) = 0.0_rk
         do i = 1, icl
             cl(Mmax + 1, kk) = cl(Mmax + 1,kk) + Ex(i,kk)
-            cl(kk,kk) = cl(kk,kk) + Ex(i,kk)**2*1.0e6*(0.58_rk + dlog(Ra(i,kk)/Rl(i,kk)))/(2.0_rk*pi)
+            cl(kk,kk) = cl(kk,kk) + Ex(i,kk)**2*1.0d6*(0.58_rk + dlog(Ra(i,kk)/Rl(i,kk)))/(2.0_rk*pi)
         end do
 
         do i = 1, icl
