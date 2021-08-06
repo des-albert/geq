@@ -16,7 +16,7 @@ module solver_mod
 
     integer(ik) :: Nexp, Mr, Nz, MN, Mm1, Nm1, llp, mpnmax
     integer(ik) :: jdes, jaxis, ndes, naxis, icycle, idecis, idol 
-    integer(ik) :: Mmax, irsp, izsp
+    integer(ik) :: Mmax, irsp, izsp, icops
     integer, dimension(6) :: ityp
 
     integer, dimension(:), allocatable :: ip, jp
