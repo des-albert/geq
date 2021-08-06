@@ -138,7 +138,7 @@ program solver
           Ra(ic(k),k) = rac
           Za(ic(k),k) = zac
           Ex(ic(k),k) = exc
-          Rl(ic(k),k) = 1.0e-20*rac
+          Rl(ic(k),k) = 1.0d-20*rac
        end do
 
  10    if (ic(k) < 1) go to 20
@@ -281,7 +281,7 @@ program solver
         cl(Mmax+1, kk) = 0.0_rk
         do i = 1, icl
             cl(Mmax + 1, kk) = cl(Mmax + 1,kk) + Ex(i,kk)
-            cl(kk,kk) = cl(kk,kk) + Ex(i,kk)**2*1.0e6*(0.58_rk + log(Ra(i,kk)/Rl(i,kk)))/(2.0_rk*pi)
+            cl(kk,kk) = cl(kk,kk) + Ex(i,kk)**2*1.0e6*(0.58_rk + dlog(Ra(i,kk)/Rl(i,kk)))/(2.0_rk*pi)
         end do
 
         do i = 1, icl
@@ -408,8 +408,6 @@ program solver
 30  continue
 
     call plotit()
-
- 
 
 !
 !       Magnetic and Geometric properties
