@@ -31,7 +31,7 @@ subroutine saddle()
                 zfrr = g(k+1,i) - 2.0_rk*hk + g(k-1,i)
                 zfzz = g(k,i+1) - 2.0_rk*hk + g(k,i-1)
                 zfrz = g(k+1,i+1) + g(k-1,i-1) - g(k+1,i-1) - g(k-1,i+1)
-                if (16._rk*zfrr*zfzz - zfrz**2 .lt. 0.0_rk) then
+                if (16._rk*zfrr*zfzz - zfrz**2 < 0.0_rk) then
                     sg = .false.
                     gg = .false.
                     ko = 1
