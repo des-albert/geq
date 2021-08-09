@@ -6,12 +6,12 @@
 !
 !
 !-----------------------------------------------------------------------
-subroutine xcur(a)
+subroutine xcur()
 
     use solver_mod
 
     integer :: mmaxp1, mmaxp2, i, j, ll, k, ier, ki
-    real(rk), dimension(mpnmax,1) :: a
+    real(rk), dimension(mpnmax,mpnmax) :: a
     real(rk) :: energy
 
     real(rk), dimension(3) :: bv = (/ -1._rk, 0.0_rk, 0._rk /)

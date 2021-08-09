@@ -55,7 +55,7 @@
 program solver
     use solver_mod
 
-    integer(ik) :: meshfg, mprfg, nof, jn, ll, kk
+    integer(ik) :: meshfg, nof, jn, ll, kk
     integer(ik) :: i, j, k, ii, icm, lp1, icl, nlines, na
     integer(ik), dimension(Mc) :: ic
     integer(ik), dimension(30) :: np
@@ -370,7 +370,7 @@ program solver
             call condit(expsi, Rcc(ll), Zcc(ll), 1, eb(ll,Mmax+1))
         end do
 
-        call xcur (expsi)
+        call xcur ()
     
         xt1 = 0.0_rk
         xt2 = 0.0_rk

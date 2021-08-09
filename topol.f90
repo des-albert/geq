@@ -128,7 +128,7 @@ subroutine topol(lcod)
               
     endif
 
-150 print *, ' Case abondoned'
+150 print *, ' Case abandoned'
     return
 
 end subroutine topol    
